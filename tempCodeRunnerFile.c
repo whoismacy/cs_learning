@@ -1,44 +1,28 @@
-#include<stdio.h>
-#include<stdbool.h>
+#include <stdio.h>
+#include <string.h>
+
+struct students
+{
+    char names[20];
+    int age;
+    int min_score;
+};
+
 int main()
-{   int n, elements[n], i, desired_element;
-    printf("Enter the number of elements in your desired array");
-    scanf("%d", &n);
-    printf("Enter the element you'd like to look for.");
-    scanf("%d", &desired_element);
-    printf("Enter the desired elements in ascending order");
-    for(i = 0; i < n; i++)
-    {
-        scanf("%d", &elements[n]);
-    }
-    while (true)
-    {
-        int low = 0;
-        int high = n-1;
-        int middle_element = (low + high) / 2;
+{
+    struct students students1;
+    struct students students2;
+    struct students students3;
 
-        if (low > high)
-        {
-            printf("ERROR!!");
-            break;
-        }
-        if( elements[middle_element] == desired_element)
-        {
-            printf("The element was found at position %d", middle_element + 1);
-            break;
-        }
-        else if(elements[middle_element] > desired_element)
-        {
-            high = middle_element -1;
-            low = 0;
-        }
-        else if(elements[middle_element] < desired_element)
-        {
-            low = middle_element + 1;
-            high = n -1;
-        }
-    
-    }
+    students1.age = 20;
+    students2.age = 19;
+    students3.age = 29;
 
+    strcpy(students2.names, "Shem Murimi");
+    students2.min_score = 80;
+
+    printf("%s of age ", students2.names);
+    printf("%d with a minimum score of ", students2.age);
+    printf("%d.", students2.min_score);
     return 0;
 }
